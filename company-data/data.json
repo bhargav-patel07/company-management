@@ -1,0 +1,18 @@
+{
+  "companyData": [
+    {
+        "id":1,
+        "companyName":"bhargav"
+    },
+    {
+      "id":2,
+      "companyName":"hargav"
+  }, {
+    "id":3,
+    "companyName":"argav"
+}, {
+  "id":4,
+  "companyName":"rgav"
+}
+  ]
+}

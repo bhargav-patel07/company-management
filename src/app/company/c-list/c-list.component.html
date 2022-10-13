@@ -1,0 +1,29 @@
+
+    <div class="list">
+
+        <div class="icon">
+            <i class="fa-regular fa-square-plus" (click)="formShow()"></i>
+        </div>
+        <div class="d-flex">
+            <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>sr.no</th>
+                    <th>company name</th>
+                    <th>action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let items of table index as i">
+                    <td>{{i+1}}</td>
+                    <td>{{items.companyName}}</td>
+                    <td>
+                        <i class="fa-solid fa-trash text-danger" (click)="onDelete(items.id)"></i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>

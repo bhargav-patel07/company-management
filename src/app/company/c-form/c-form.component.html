@@ -1,0 +1,28 @@
+<form [formGroup]="companyForm">
+    <input  type="text" placeholder="enter firstname" formControlName="companyName" class="form-control"><br>
+    <span *ngIf="function['companyName'].invalid && (function['companyName'].touched || function['companyName'].dirty)" class="text-danger">
+        <span *ngIf="function['companyName'].errors && function['companyName'].errors['required']">
+            *please add company name
+        </span>
+        <!-- <span *ngIf="function['companyName'].errors && function['companyName'].errors['pattern']">
+            *please enter your atlist 3 charecter
+        </span> -->
+    </span><br>
+    <input  type="text" placeholder="companyDescribtion" formControlName="companyDescribtion" class="form-control form-control1"><br>
+    <span *ngIf="function['companyDescribtion'] && function['companyDescribtion'].invalid && function['companyDescribtion'].touched || function['companyDescribtion'].dirty" class="text-danger">
+        <span *ngIf="function['companyDescribtion'].errors && function['companyDescribtion'].errors['required']">
+            *please enter companyDescribtion
+        </span>
+        <!-- <span *ngIf="function['companyDescribtion'].errors && function['companyDescribtion'].errors['pattern']">
+            *please enter only alphabet
+        </span> -->
+    </span><br>
+    <input  type="text" placeholder="selectTag" formControlName="selectTag" class="form-control"><br>
+    <span *ngIf="function['selectTag'] && function['selectTag'].invalid && function['selectTag'].touched" class="text-danger">*please select tag</span><br>
+
+        <input  type="text" placeholder="selectlogo" formControlName="selectlogo" class="form-control form-control1"><br>
+        <span *ngIf="function['selectlogo'] && function['selectlogo'].invalid && function['selectlogo'].touched || function['selectlogo'].dirty" class="text-danger">
+            <span *ngIf="function['selectlogo'].errors && function['selectlogo'].errors['required']">
+                *please select selectlogo
+            </span><br>
+
