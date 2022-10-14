@@ -11,7 +11,7 @@ import { ManagementService } from '../services/management.service';
 export class CFormComponent implements OnInit {
 [x:string]:any;
   public companyForm!: FormGroup;
-  public table!: model[];
+  public companyTable!: model[];
   public items: any;
   public id:any;
 
@@ -21,7 +21,7 @@ export class CFormComponent implements OnInit {
     this.activatedRoute.params.subscribe((params)=>{
       this.id=params['id'];
     })
-    this.table = [];
+    this.companyTable = [];
     this.companyForm = new FormGroup({
       companyName: new FormControl('', [Validators.required]),
       companyDescribtion: new FormControl('', [Validators.required]),
@@ -31,8 +31,22 @@ export class CFormComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.companyTable
   }
   get function(): { [key: string]: AbstractControl } {
     return this.companyForm.controls;
   }
+
+  save(){
+    this.managementservices.addCompany(this.companyForm.value).subscribe(res=>{
+      console.log(res);
+      
+    })
+  }
+    
+
+  public reset(): void {
+    this.companyForm.reset();
+  }
+
 }
