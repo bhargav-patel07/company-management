@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { model } from '../model';
 import { ManagementService } from '../services/management.service';
 
 
@@ -10,11 +11,12 @@ import { ManagementService } from '../services/management.service';
   styleUrls: ['./c-list.component.scss']
 })
 export class CListComponent implements OnInit {
+  [x: string]: any;
+  
 
-  public table:any;
-
+  companyTable:any;
   constructor(private service:ManagementService, private router:Router) {
-    this.table = []
+    this.companyTable = []
    }
   
 
@@ -25,7 +27,7 @@ export class CListComponent implements OnInit {
   getCampanyData(){
     this.service.getCompany().subscribe((result)=>{
       console.log(result);
-      this.table=result;
+      this.companyTable=result;
     })
   }
 onDelete(items:any){
@@ -34,12 +36,14 @@ onDelete(items:any){
     this.getCampanyData();
   })
 }
-
-
-
+ 
   formShow(){
     this.router.navigate(['company/c-form'])
   }
+
+ public editItem(user:model):void{
+
+}
 
 }
 
