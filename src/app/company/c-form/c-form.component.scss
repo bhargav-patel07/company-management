@@ -1,15 +1,23 @@
-*{
-    padding: 30px;
+form{
     justify-content: center;
 } 
+.button{
+    height: 20px;
+    width: 36px;
+}
 
+
+.buttons{
+    margin-left: 350px;
+    padding: 40px;
+}
 .form-control{
     width: 500px;
-    height: 24px;
+    height: 54px;
     margin: 20px;
 }
 .form-control1{
     width: 500px;
-   padding: 50px;
+   height: 100px;
     margin: 20px;
 }
