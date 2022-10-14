@@ -1,6 +1,5 @@
 
     <div class="list">
-
         <div class="icon">
             <i class="fa-regular fa-square-plus" (click)="formShow()"></i>
         </div>
@@ -17,8 +16,8 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let items of table index as i">
-                    <td>{{i+1}}</td>
+                <tr *ngFor="let items of companyTable index as i">
+                    <td  ><div (click)="editItem(items)">{{i+1}}</div></td>
                     <td>{{items.companyName}}</td>
                     <td>
                         <i class="fa-solid fa-trash text-danger" (click)="onDelete(items.id)"></i>
