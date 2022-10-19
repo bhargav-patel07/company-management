@@ -13,7 +13,8 @@ children:[
 },
 {
   path:'c-form',
-  component:CFormComponent
+  component:CFormComponent,
+  data: { breadcrumb: {alias: 'c-form'} },
 }
 
 ]

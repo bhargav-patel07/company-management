@@ -4,3 +4,9 @@
 @import "assets/scss/layout/index";
 @import "assets/scss/components/index";
 @import "assets/scss/utilities/index";
+
+@import "~@ng-select/ng-select/themes/default.theme.css";
+
+html, body { height: 100%;
+background-color: rgb(43, 85, 99); }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
