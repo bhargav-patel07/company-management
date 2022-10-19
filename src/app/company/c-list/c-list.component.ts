@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { DataCommunicationService } from '../dataCommmunication/data-communication.service';
 import { model } from '../model';
 import { ManagementService } from '../services/management.service';
+
 
 
 
@@ -12,16 +14,25 @@ import { ManagementService } from '../services/management.service';
 })
 export class CListComponent implements OnInit {
   [x: string]: any;
-  
+
+public searchText:string;
 
   companyTable:any;
-  constructor(private service:ManagementService, private router:Router) {
+  constructor(private service:ManagementService, private router:Router, private datacommunicationService:DataCommunicationService) {
     this.companyTable = []
+    this.searchText=''
    }
   
 
   ngOnInit(): void {
-    this.getCampanyData();
+    this.datacommunicationService.dataCommunication.subscribe((data)=>{
+      console.log(data);
+      
+      if(data){
+        this.getCampanyData();  
+      }
+    })
+    this.getCampanyData();  
   }
 
   getCampanyData(){
@@ -30,6 +41,7 @@ export class CListComponent implements OnInit {
       this.companyTable=result;
     })
   }
+  
 onDelete(items:any){
   this.service.deleteCompany(items).subscribe((result)=>{
     console.log(result);
@@ -42,8 +54,11 @@ onDelete(items:any){
   }
 
  public editItem(user:model):void{
+  
 
 }
+ 
+
 
 }
 

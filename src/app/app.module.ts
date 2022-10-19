@@ -7,6 +7,10 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { ShareModule } from './share/share.module';
 import {ReactiveFormsModule} from '@angular/forms';
+import { BreadcrumbModule } from 'xng-breadcrumb';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
 
 @NgModule({
   declarations: [
@@ -18,10 +22,14 @@ import {ReactiveFormsModule} from '@angular/forms';
     CoreModule,
     ShareModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BreadcrumbModule,
+    BrowserAnimationsModule,  
   ],
+
   
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+ }
