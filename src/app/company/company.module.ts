@@ -7,6 +7,10 @@ import { CListComponent } from './c-list/c-list.component';
 import { CFormComponent } from './c-form/c-form.component';
 import { ManagementService } from './services/management.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ShareModule } from '../share/share.module';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { ToastrModule } from 'ngx-toastr';
+import { CompanyResolver } from './services/company.resolver';
 
 
 @NgModule({
@@ -19,7 +23,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     CompanyRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    ShareModule,
+    NgSelectModule,
+    ToastrModule.forRoot()
   ],
   exports:[
     CompanyComponent,
@@ -27,7 +34,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CFormComponent
   ],
   providers:[
-    ManagementService
+    ManagementService,
+    CompanyResolver
   ]
 })
 export class CompanyModule { }

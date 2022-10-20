@@ -5,9 +5,7 @@
         <span *ngIf="function['companyName'].errors && function['companyName'].errors['required']">
             *please add company name
         </span>
-        <!-- <span *ngIf="function['companyName'].errors && function['companyName'].errors['pattern']">
-            *please enter your atlist 3 charecter
-        </span> -->
+        
     </span><br>
     <input type="text" placeholder="companyDescribtion" formControlName="companyDescribtion"
         class="form-control form-control1">
@@ -17,25 +15,29 @@
         <span *ngIf="function['companyDescribtion'].errors && function['companyDescribtion'].errors['required']">
             *please enter companyDescribtion
         </span>
-        <!-- <span *ngIf="function['companyDescribtion'].errors && function['companyDescribtion'].errors['pattern']">
-            *please enter only alphabet
-        </span> -->
+       
     </span><br>
-    <input type="text" placeholder="selectTag" formControlName="selectTag" class="form-control">
-    <span *ngIf="function['selectTag'] && function['selectTag'].invalid && function['selectTag'].touched"
-        class="text-danger">*please select tag</span><br>
+    
 
-    <input type="text" placeholder="selectlogo" formControlName="selectlogo" class="form-control ">
-    <span
-        *ngIf="function['selectlogo'] && function['selectlogo'].invalid && function['selectlogo'].touched || function['selectlogo'].dirty"
-        class="text-danger">
-        <span *ngIf="function['selectlogo'].errors && function['selectlogo'].errors['required']">
-            *please select selectlogo </span><br>
-            </span>
-          
+    <ng-select class="dropdown"
+    [items]="cities1"
+              bindLabel="name"
+              bindValue="id"
+              [multiple]="true"
+              placeholder="Select cities">
+   </ng-select>   <br> 
+   <ng-select class="dropdown"
+    [items]="cities2"
+              bindLabel="name"
+              bindValue="id"
+              [multiple]="true"
+              placeholder="Select towm">
+   </ng-select>    
+
+<!-- Multiple tag -->
+
 </form>
-
 <div class="d-flex buttons">
-    <button (click)="reset()" class="btn btn-outline-primary mx-4">reset</button> <br>
-    <button (click)="save()" class="btn btn-outline-primary">save</button>
+    <button (click)="reset()" class="btn mx-4 ">reset</button> <br>
+    <button (click)="save()" class="btn ">save</button>
 </div>

@@ -1,18 +1,18 @@
 {
   "companyData": [
     {
-        "id":1,
-        "companyName":"bhargav"
+      "companyName": "bhargav gfgg",
+      "companyDescribtion": "dfdafdf",
+      "selectTag": "",
+      "selectlogo": "",
+      "id": 1
     },
     {
-      "id":2,
-      "companyName":"hargav"
-  }, {
-    "id":3,
-    "companyName":"argav"
-}, {
-  "id":4,
-  "companyName":"rgav"
-}
+      "companyName": "Ayush Dhimmar",
+      "companyDescribtion": "Frontend",
+      "selectTag": "",
+      "selectlogo": "",
+      "id": 2
+    }
   ]
 }

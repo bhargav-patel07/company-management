@@ -1,28 +1,29 @@
-
-    <div class="list">
-        <div class="icon">
-            <i class="fa-regular fa-square-plus" (click)="formShow()"></i>
-        </div>
-        <div class="d-flex">
-            <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-
-        </div>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>sr.no</th>
-                    <th>company name</th>
-                    <th>action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let items of companyTable index as i">
-                    <td  ><div (click)="editItem(items)">{{i+1}}</div></td>
-                    <td>{{items.companyName}}</td>
-                    <td>
-                        <i class="fa-solid fa-trash text-danger" (click)="onDelete(items.id)"></i>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+<div class="list mx-auto bg-color">
+    <div class="icon">
+        <i class="fa-regular fa-square-plus text-white p-3" (click)="formShow()"></i>
     </div>
+    <div class="d-flex">
+        <input [(ngModel)]="searchText" class="form-control" type="search" placeholder="Search" aria-label="Search">
+
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>sr.no</th>
+                <th>company name</th>
+                <th>action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let items of companyTable  | system :searchText">
+                <td>
+                    <div class="logo" [routerLink]="['edit/'+items.id]" (click)="onEdit(items.companyName)">{{items.companyName | logo}}</div>
+                </td>
+               <div class="companyName"> <td>{{items.companyName}}</td></div>
+                <td>
+                   <div class="logo1 text-danger"> <i class="fa-solid fa-xmark  " (click)="onDelete(items.id)"></i></div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
