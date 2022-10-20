@@ -17,6 +17,7 @@ export class CFormComponent implements OnInit {
   public companyTable!: model[];
   public items: any;
   public id:any;
+  public company_name:string='';
 
   // Multiple tag
   cities1 = [
@@ -38,10 +39,14 @@ cities2 = [
 
 
   constructor(private managementservices: ManagementService, private activatedRoute:ActivatedRoute, private datacommunicationService:DataCommunicationService) {
-    this.activatedRoute.params.subscribe((params)=>{
-      this.id=params['id'];
-
-
+    this.activatedRoute.params.subscribe((data)=>{
+      // this.id=data['company']?.id;
+      this.id = data['id'];
+      console.log(activatedRoute);
+      
+      this.company_name = data['company']?.companyName;
+      console.log(this.id);
+      
     })
     this.companyTable = [];
     this.companyForm = new FormGroup({
@@ -50,9 +55,14 @@ cities2 = [
       selectTag: new FormControl('', [Validators.required]),
       selectlogo: new FormControl('', [Validators.required])
     })
+    console.log(activatedRoute);
+    
    }
 
   ngOnInit(): void {
+    this.activatedRoute.data.subscribe(res=>{
+      this.companyForm.patchValue(res['company'])
+    })
     this.companyTable
   }
   get function(): { [key: string]: AbstractControl } {
@@ -61,14 +71,30 @@ cities2 = [
 
   save(){
 
-    this.managementservices.addCompany(this.companyForm.value).subscribe(res=>{
-      // console.log(res);
-    this.datacommunicationService.getData(res);
-    
-      })
+    if (this.id){
+      this.updateData()
+    }else{
+      this.managementservices.addCompany(this.companyForm.value).subscribe(res=>{
+        // console.log(res);
+      this.datacommunicationService.getData(res);
+      
+        })
+    }
   }  
   public reset(): void {
     this.companyForm.reset();
+  }
+
+  updateData(){
+    this.managementservices.updateCompany(Number(this.id),this.companyForm.value).subscribe(res=>{
+      this.getCmpanyData();
+    })
+  }
+
+  getCmpanyData(){
+    this.managementservices.getCompany().subscribe(res=>{
+      this.companyTable=res  
+    });
   }
 
 }

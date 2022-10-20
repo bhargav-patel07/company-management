@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BreadcrumbService } from 'xng-breadcrumb';
+import { CrumbsService } from 'src/app/share/breadCrumbs/crumbs.service';
 
 
 @Component({
@@ -8,11 +8,14 @@ import { BreadcrumbService } from 'xng-breadcrumb';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-
-  constructor(private breadcrumbService:BreadcrumbService) { }
+public Bread!:string;
+  constructor(private breadcrumbService:CrumbsService) { }
 
   ngOnInit(): void {
-    this.breadcrumbService.set('@company', 'company');
+    console.log('abc');
+    this.breadcrumbService.breadCrumb.subscribe(res=>{
+      this.Bread=res;
+    })
   }
 
 }
