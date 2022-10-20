@@ -10,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ShareModule } from '../share/share.module';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { ToastrModule } from 'ngx-toastr';
+import { CompanyResolver } from './services/company.resolver';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { ToastrModule } from 'ngx-toastr';
     CFormComponent
   ],
   providers:[
-    ManagementService
+    ManagementService,
+    CompanyResolver
   ]
 })
 export class CompanyModule { }

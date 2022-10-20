@@ -28,9 +28,21 @@ export class ManagementService {
     return this.http.post<model>(url, company);
   }
   // Delete Method
-  deleteCompany(id: model): Observable<model> {
+  deleteCompany(id: number): Observable<model> {
     const url = this.baseUrl + 'companyData/' + id;
     return this.http.delete<model>(url);
   }
+  //  update data
+  updateCompany(id: number, data: model): Observable<model> {
+    const url = this.baseUrl + 'companyData/' + id;
+    return this.http.put<model>(url, data);
+  }
 
+  // get data by id
+  getDataById(id:number): Observable<model> {
+    const url = this.baseUrl + 'companyData/' + id;
+    return this.http.get<model>(url);
+  }
+
+  // 
 }

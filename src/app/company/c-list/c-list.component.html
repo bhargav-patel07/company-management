@@ -1,6 +1,6 @@
 <div class="list mx-auto bg-color">
     <div class="icon">
-        <i class="fa-regular fa-square-plus" (click)="formShow()"></i>
+        <i class="fa-regular fa-square-plus text-white p-3" (click)="formShow()"></i>
     </div>
     <div class="d-flex">
         <input [(ngModel)]="searchText" class="form-control" type="search" placeholder="Search" aria-label="Search">
@@ -17,11 +17,11 @@
         <tbody>
             <tr *ngFor="let items of companyTable  | system :searchText">
                 <td>
-                    <div class="logo" (click)="editItem(items)">{{items.companyName | logo}}</div>
+                    <div class="logo" [routerLink]="['edit/'+items.id]" (click)="onEdit(items.companyName)">{{items.companyName | logo}}</div>
                 </td>
-                <td class="text-centerr fw-bolder">{{items.companyName}}</td>
+               <div class="companyName"> <td>{{items.companyName}}</td></div>
                 <td>
-                    <i class="fa-solid fa-xmark logo1 text-danger" (click)="onDelete(items.id)"></i>
+                   <div class="logo1 text-danger"> <i class="fa-solid fa-xmark  " (click)="onDelete(items.id)"></i></div>
                 </td>
             </tr>
         </tbody>
